@@ -1,0 +1,162 @@
+:root{
+    --primary-color:#e50914;
+    --dark-color: #141414;
+    --light-color: #f4f4f4;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000000;
+    color:#999999;
+}
+
+ul{
+    list-style: none;
+}
+
+h1, h2, h3, h4{
+    color:#ffffff;
+}
+
+h3{
+    /*글꼴 굵기 font-weight: bolder, lighter, 100, 200, 300 ~700*/
+    font-weight: lighter;
+}
+
+a{
+    color:#ffffff;
+    text-decoration: none;
+}
+
+p{
+    margin: 0.5rem 0;
+    font-weight:bold;
+    color: #ffffff;
+}
+
+img{
+    width:100%;
+}
+
+.showcase{
+    width: 100%;
+    height:100vh;
+    position:relative;
+    /*중요!!!*/
+    /*background-repeat: 배경 이미지 반복 여부 결정 - 컨테이너보다 작은 이미지를 적용하면,
+    이미지가 반복되어 출력될 수 있기 때문에*/
+    background: url("1.jpg") no-repeat center center/cover;
+}
+
+.showcase::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    /*width와 height를 100%로 주면, 창크기에 상관없이 100% 꽉차게 된다.*/
+    width:100%;
+    height:100%;
+    /*z-index: 숫자가 낮을수록 뒤에, 높을수록 앞에 배치*/
+    z-index:1;
+    background: rgba(0,0,0,0.4);
+    /*box-shadow는 선택한 요소에 그림자 효과를 준다.*/
+    box-shadow: 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+    
+}
+
+.showcase-top{
+    position: relative;
+    z-index: 2;
+    height:90px;
+}
+
+.showcase-top img{
+    width: 140px;
+    position: absolute;
+    top: 50%;
+    left:0;
+    /*transform: 요소에 회전, 크기 조절, 기울이기, 이동 효과를 부여*/
+    /*x축으로 x만큼, y축으로 y만큼*/
+    transform:translate(40%, -50%);
+}
+
+.showcase-top a{
+    position:absolute;
+    top: 50%;
+    right:0;
+    transform:translate(-60%, -50%);
+}
+
+.showcase-content{
+    position:relative;
+    margin: 0 26%;
+    z-index: 2;
+    /*중요!!! display:flex*/
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 9rem;
+}
+
+.showcase-content h1{
+    font-weight: 700;
+    font-size: 64px;
+    margin: 0 30px;
+    max-width: 800px;
+    line-height: 74.5px;
+}
+
+.showcase-content h3{
+    color: white;
+    font-size: 25px;
+    margin: 16px 0;
+}
+
+.showcase-content p{
+    font-size: 19.2px;
+    font-weight: 300;
+    padding-top:0.5rem;
+    padding-bottom: 1rem;
+}
+
+.showcase-content input{
+    position: absolute;
+    left:0;
+    bottom:-8vh;
+    width: 454px;
+    height: 3rem;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+}
+
+/*inline과 block의 혼합 형태: 동일 라인에 여러 태그 붙일 수 있다. 
+다만, width, height, margin/padding-top/bottom 적용 가능*/
+.btn{
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    text-align: center;
+    border:none;
+    cursor: pointer;
+    border-radius: 2px;
+    margin-right: 0.5rem;
+    outline: none;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.45);
+}
+
+
+
+
+
+
+
+
+
+
