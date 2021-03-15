@@ -11,7 +11,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #000000;
+    background: #000000;
     color:#999999;
 }
 
@@ -48,11 +48,13 @@ img{
     height:100vh;
     position:relative;
     /*중요!!!*/
-    /*background-repeat: 배경 이미지 반복 여부 결정 - 컨테이너보다 작은 이미지를 적용하면,
+    /*background-repeat: 배경 이미지 반복 여부 결정 - 
+    컨테이너보다 작은 이미지를 적용하면,
     이미지가 반복되어 출력될 수 있기 때문에*/
     background: url("1.jpg") no-repeat center center/cover;
 }
 
+/*요소의 콘텐츠 끝부분에 생성된 콘텐츠 추가*/
 .showcase::after{
     content:"";
     position:absolute;
@@ -65,8 +67,7 @@ img{
     z-index:1;
     background: rgba(0,0,0,0.4);
     /*box-shadow는 선택한 요소에 그림자 효과를 준다.*/
-    box-shadow: 120px 100px 250px #000000, inset -120px -100px 250px #000000;
-    
+    box-shadow: 120px 100px 250px #000000, inset -120px -100px 250px #000000;  
 }
 
 .showcase-top{
@@ -97,9 +98,11 @@ img{
     margin: 0 26%;
     z-index: 2;
     /*중요!!! display:flex*/
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    align-items:center;
     margin-top: 9rem;
 }
 
@@ -125,17 +128,20 @@ img{
 }
 
 .showcase-content input{
-    position: absolute;
-    left:0;
+    position:absolute;
+    right: 350px;
     bottom:-8vh;
-    width: 454px;
+    width: 500px;
     height: 3rem;
     font-size: 1rem;
     padding-left: 0.5rem;
 }
 
+
 /*inline과 block의 혼합 형태: 동일 라인에 여러 태그 붙일 수 있다. 
-다만, width, height, margin/padding-top/bottom 적용 가능*/
+width, height, margin/padding-top/bottom 적용 가능*/
+/*inline은 컨텐츠 영역만큼 자동으로 잡힌다. width, height 명시 불가능*/
+/*block은 height, margin, width, padding 적용 가능*/
 .btn{
     display: inline-block;
     background: var(--primary-color);
@@ -143,7 +149,7 @@ img{
     padding: 0.5rem 1.2rem;
     font-size: 1rem;
     text-align: center;
-    border:none;
+    border: none;
     cursor: pointer;
     border-radius: 2px;
     margin-right: 0.5rem;
@@ -152,8 +158,200 @@ img{
 }
 
 
+.btn:hover{
+    opacity: 0.9;
+}
 
+.btn-rounded{
+    border-radius: 5px;
+}
 
+.showcase-content .btn-lg{
+    position: absolute;
+    right:79px;
+    bottom: -8vh;
+    padding: 0.5rem 1.2rem;
+    font-size:1.5rem;
+    text-transform: uppercase;
+    height: 36px;
+    width: 14rem;
+}
+
+/*section 부분의 CSS*/
+.card-1,
+.card-2,
+.card-3{
+    /*border-top만 지정 가능*/
+    border-top: 8px rgb(69, 69, 69) solid;
+    padding: 30px;
+}
+
+.card-1{
+    position:relative;
+    display: inline-grid;
+    grid-template-columns: 50% 40%;
+    /*text-align 텍스트 정렬 방향*/
+    text-align: left;
+    align-items: center;
+    /*padding: xpx 위 ypx 오,왼 zpx 아래*/
+    padding: 25px 45px 50px;
+}
+
+.desc-1{
+    padding-left: 80px;
+}
+
+.style-cards h1{
+    font-size: 3rem;
+    padding: 1rem;
+    padding-left: 0;
+}
+
+.style-cards h3{
+    font-size: 1.6rem;
+    line-height: 2rem;
+}
+
+.card-1 video{
+    position: relative;
+    width:100%;
+    height: 54%;
+    grid-column: 2/2;
+    grid-row:1/2;
+    z-index: -1;
+}
+
+.card-1 img{
+    grid-column: 2/2;
+    grid-row: 1/2;
+}
+
+.card-2{
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 40% 40%;
+}
+
+.desc-2{
+    padding-left: 100px;
+    padding-top: 140px;
+}
+
+.card-3{
+    position: relative;
+    display: inline-grid;
+    grid-template-columns: 50% 40%;
+    text-align: left;
+    align-items: center;
+    padding: 25px 45px 50px;
+}
+
+.desc-3{
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+.card-3 img{
+    width:110%;
+    grid-column: 2/2;
+    grid-row: 1/2;
+}
+
+.card-3 video{
+    position: relative;
+    top: -87px;
+    left: 128px;
+    width: 65%;
+    height: 78%;
+    grid-column: 2/2;
+    grid-row: 1/2;
+    z-index: -1;
+}
+
+/*section 부분의 CSS*/
+.faq{
+    text-align: center;
+}
+
+.faq h1{
+    padding-bottom: 40px;
+    font-size: 3rem;
+}
+
+.questions{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+    align-items: center;
+}
+
+.questions li{
+    padding: 20px 30px;
+    margin:5px;
+    font-size: 1.6rem;
+    background-color: #303030; 
+    color:white;
+    text-align: left;
+    width: 50%;
+}
+
+.faq p{
+    padding-top: 60px;
+    font-size: 1.2rem;
+    font-weight: 200;
+}
+
+.input{
+    display: -ms-inline-grid;
+    align-items: center;
+    grid-template-columns: 50% 40%;
+}
+
+.input input{
+    width: 550px;
+    height: 3rem;
+}
+
+.input button{
+    height: 3.25rem;
+    width: 320px;
+    left:20px;
+    text-align: center;
+    background-color: var(--primary-color);
+    font-size: 1.5rem;
+    padding: 10px 32px;
+    border: none;
+    border-radius: 2px;
+    color: white;
+}
+
+/*footer 부분의 CSS*/
+.footer{
+    max-width: 70%;
+    margin: 1rem auto;
+    overflow: suto;
+}
+
+.footer,
+.footer a{
+    color: #999999;
+    font-size: 0.9rem;
+}
+
+.footer p{
+    margin-bottom: 1.5rem;
+}
+
+.footer .footer-cols{
+    display: grid;
+    /*중요!!!*/
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+}
+
+.footer li{
+    line-height: 2.4;
+}
 
 
 
